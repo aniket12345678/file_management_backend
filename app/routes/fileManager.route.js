@@ -1,7 +1,12 @@
 const fileManagerRoutes = require('express')();
 
-const { uploadMedia } = require('../controllers/fileManager.controller');
+const { multerFn } = require('../middleware/middleware');
+const { uploadMedia, findAllMedia, fetchImage } = require('../controllers/fileManager.controller');
 
-fileManagerRoutes.post('/add', uploadMedia);
+const upload = multerFn();
+
+fileManagerRoutes.post('/add', upload.array('attachments'), uploadMedia);
+fileManagerRoutes.post('/find/all', findAllMedia);
+fileManagerRoutes.get('/find/image/:id', fetchImage);
 
 module.exports = { fileManagerRoutes };

@@ -1,6 +1,6 @@
 const { Schema } = require("mongoose");
 
-const userSchema = new Schema({
+const fileManagerSchema = new Schema({
     parent_id: {
         type: Number,
         required: true
@@ -15,8 +15,8 @@ const userSchema = new Schema({
     },
     is_deleted: {
         type: String,
-        required: true
+        default: false
     }
 });
 
-module.exports = { userSchema };
+module.exports = { fileManagerSchema };
