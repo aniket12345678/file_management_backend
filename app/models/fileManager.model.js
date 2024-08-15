@@ -2,7 +2,7 @@ const { Schema } = require("mongoose");
 
 const fileManagerSchema = new Schema({
     parent_id: {
-        type: Number,
+        type: String,
         required: true
     },
     media_type: {
