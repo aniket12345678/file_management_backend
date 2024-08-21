@@ -20,7 +20,10 @@ const uploadMedia = async (req, res) => {
             });
         }
         return res.status(200).send({
-            message: 'Data added successfully',
+            message: store.media_type === 'file' ?
+                'File added successfully'
+                :
+                'Folder created successfully',
             code: 200
         })
     } catch (error) {
